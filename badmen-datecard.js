@@ -1,8 +1,8 @@
 import { LitElement, html, css } from "lit";
 
-export class badmenJoinus extends LitElement {
+export class badmenDatecard extends LitElement {
   static get tag() {
-    return "badmen-joinus";
+    return "badmen-datecard";
   }
 
   static get properties() {
@@ -26,9 +26,9 @@ export class badmenJoinus extends LitElement {
 
   render() {
     return html`
-     <h1>hello I am the join us</h1> 
+     <h1>hello I am the date card</h1> 
     `;
   }
 }
 
-customElements.define(badmenJoinus.tag, badmenJoinus);
+customElements.define(badmenDatecard.tag, badmenDatecard);
