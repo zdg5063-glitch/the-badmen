@@ -72,8 +72,15 @@ export class TheBadmen extends DDDSuper(I18NMixin(LitElement)) {
   render() {
     return html`
 <div class="wrapper">
-  <h3><span>${this.t.title}:</span> ${this.title}</h3>
-  <slot></slot>
+  <badmen-joinus></badmen-joinus>
+  <badmen-datecard
+  date="Saturday, March 15"
+  location="IM Building Court 3"
+  time="6:00 PM – 8:00 PM"
+  ageGroup="18U"
+  
+></badmen-datecard>
+
 </div>`;
   }
 
