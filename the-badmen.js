@@ -30,11 +30,7 @@ export class TheBadmen extends DDDSuper(I18NMixin(LitElement)) {
   constructor() {
     super();
     this.title = "";
-    this.t = this.t || {};
-    this.t = {
-      ...this.t,
-      title: "Title",
-    };
+    
     this.registerLocalization({
       context: this,
       localesPath:
@@ -73,44 +69,20 @@ export class TheBadmen extends DDDSuper(I18NMixin(LitElement)) {
   }
 
   // Lit render the HTML
-render() {
-  return html`
-    <div class="wrapper">
+  render() {
+    return html`
+<div class="wrapper">
+  <badmen-joinus></badmen-joinus>
+  <badmen-datecard
+  date="Saturday, March 15"
+  location="IM Building Court 3"
+  time="6:00 PM – 8:00 PM"
+  ageGroup="18U"
+  
+></badmen-datecard>
 
-      <h2>Navigation Bar</h2>
-      <badmen-navbar></badmen-navbar>
-
-      <h2>Signup Section</h2>
-      <badmen-signup></badmen-signup>
-
-      <h2>Layout</h2>
-      <badmen-layout></badmen-layout>
-
-      <h2>Team Name</h2>
-      <badmen-teamname></badmen-teamname>
-
-      <h2>Calendar</h2>
-      <badmen-calendar></badmen-calendar>
-
-      <h2>Signup</h2>
-      <badmen-signup></badmen-signup>
-
-      <h2>Stats</h2>
-      <badmen-stats></badmen-stats>
-
-       <h2>Join Us</h2>
-      <badmen-joinus></badmen-joinus>
-
-       <h2>Info boxes</h2>
-      <badmen-infoboxes></badmen-infoboxes>
-
-       <h2>datecard</h2>
-      <badmen-datecard></badmen-datecard>
-
-    </div>
-  `;
-}
-
+</div>`;
+  }
 
   /**
    * haxProperties integration via file reference
