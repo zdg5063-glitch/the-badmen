@@ -30,7 +30,11 @@ export class TheBadmen extends DDDSuper(I18NMixin(LitElement)) {
   constructor() {
     super();
     this.title = "";
-    
+    this.t = this.t || {};
+    this.t = {
+      ...this.t,
+      title: "Title",
+    };
     this.registerLocalization({
       context: this,
       localesPath:
@@ -48,41 +52,85 @@ export class TheBadmen extends DDDSuper(I18NMixin(LitElement)) {
     };
   }
 
+
+
+
   // Lit scoped styles
   static get styles() {
     return [super.styles,
     css`
       :host {
-        display: block;
-        color: var(--ddd-theme-primary);
-        background-color: var(--ddd-theme-accent);
-        font-family: var(--ddd-font-navigation);
+        
       }
-      .wrapper {
-        margin: var(--ddd-spacing-2);
-        padding: var(--ddd-spacing-4);
+      
+      .badmen-image {
+        width: 100%;
+        opacity: 50%;
       }
-      h3 span {
-        font-size: var(--the-badmen-label-font-size, var(--ddd-font-size-s));
-      }
+      
+      .join-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;  
+  transform: translate(-50%, -50%);
+  z-index: 10; /*this makes sure its above the image*/
+}
+.front-image {
+  position: relative;
+  display: inline-block; 
+}
     `];
   }
 
   // Lit render the HTML
-  render() {
-    return html`
-<div class="wrapper">
-  <badmen-joinus></badmen-joinus>
-  <badmen-datecard
-  date="Saturday, March 15"
-  location="IM Building Court 3"
-  time="6:00 PM – 8:00 PM"
-  ageGroup="18U"
-  
-></badmen-datecard>
+render() {
+  return html`
+    <div class="wrapper">
+      <badmen-navbar></badmen-navbar>
+      <div class="front-image">
+      <img
+      class=badmen-image 
+      src="https://static.vecteezy.com/system/resources/previews/065/837/411/non_2x/professional-badminton-player-in-action-during-match-with-racket-swing-photo.jpeg"
+ />
+  <badmen-joinus class="join-overlay"></badmen-joinus>      
+</div>
+         
+      
 
-</div>`;
-  }
+
+      <h2>Signup Section</h2>
+      <badmen-signup></badmen-signup>
+
+      <h2>Layout</h2>
+      <badmen-layout></badmen-layout>
+
+      <h2>Team Name</h2>
+      <badmen-teamname></badmen-teamname>
+
+      <h2>Calendar</h2>
+      <badmen-calendar></badmen-calendar>
+
+      <h2>Signup</h2>
+      <badmen-signup></badmen-signup>
+
+      <h2>Stats</h2>
+      <badmen-stats></badmen-stats>
+
+    
+
+       <h2>Info boxes</h2>
+      <badmen-infoboxes></badmen-infoboxes>
+
+       <h2>datecard</h2>
+
+      <badmen-datecard date="may 5th"
+      location="State College"
+      time="1PM"
+      ageGroup="18U"></badmen-datecard>
+    </div>
+  `;
+}
+
 
   /**
    * haxProperties integration via file reference

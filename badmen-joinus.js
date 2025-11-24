@@ -29,17 +29,17 @@ export class badmenJoinus extends LitElement {
 
       .join-button {
         background: white;
-        color: #002b5c; /* deep navy-like sports color */
-        font-size: 1.2rem;
-        font-weight: 700;
-        padding: 16px 40px;
-        border-radius: 40px;
+        color: black; 
+        font-size: 1rem;
+        font-weight: 800;
+        padding: 16px 16px;
+        border-radius: 20px;
         border: none;
         cursor: pointer;
         transition: all 0.2s ease-in-out;
         text-transform: uppercase;
-        letter-spacing: 1px;
-        box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+        letter-spacing: 4px;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.1);
       }
 
       .join-button:hover {
@@ -54,7 +54,7 @@ export class badmenJoinus extends LitElement {
     return html`
      <div class="join-wrapper">
         <button class="join-button">
-          Become a 25-26 Badman Today
+          Become a Badman Today!
         </button>
       </div> 
     `;

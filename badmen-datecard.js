@@ -42,10 +42,11 @@ export class badmenDatecard extends LitElement {
         color: #222;
         margin-bottom: 8px;
       }
+  
 
       .row {
         margin: 4px 0;
-        font-size: 0.95rem;
+        font-size: 1.8rem
         color: #444;
       }
 
@@ -58,10 +59,9 @@ export class badmenDatecard extends LitElement {
   render() {
     return html`
       <div class="date">${this.date}</div>
-
-      <div class="row"> ${this.location}</div>
-      <div class="row"> ${this.time}</div>
-      <div class="row"> ${this.ageGroup}</div>
+      <div class="location"> ${this.location}</div>
+      <div class="time"> ${this.time}</div>
+      <div class="ageGroup"> ${this.ageGroup}</div>
 
       
     `;
