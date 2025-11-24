@@ -116,8 +116,6 @@ render() {
   return html`
     <div class="wrapper">
 
-      <h2>Navigation Bar</h2>
-      <badmen-navbar></badmen-navbar>
       <badmen-navbar></badmen-navbar>
       <div class="front-image">
       <img
@@ -218,6 +216,11 @@ render() {
     </div>
     </div>
          
+    <div class="stats-row">
+      <badmen-stats number="10" label="Championships"></badmen-stats>
+      <badmen-stats number="450" label="Active Players"></badmen-stats>
+      <badmen-stats number="34" label="Coaches"></badmen-stats>
+      </div>
       
 
 
@@ -236,15 +239,7 @@ render() {
       <h2>Signup</h2>
       <badmen-signup></badmen-signup>
 
-      <h2>Stats</h2>
-      <div class="stats-row">
-      <badmen-stats number="10" label="Championships"></badmen-stats>
-      <badmen-stats number="450" label="Active Players"></badmen-stats>
-      <badmen-stats number="34" label="Coaches"></badmen-stats>
-      </div>
-       <h2>Join Us</h2>
-      <badmen-joinus></badmen-joinus>
-      <badmen-stats></badmen-stats>
+      
 
     
 
