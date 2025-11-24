@@ -52,22 +52,27 @@ export class TheBadmen extends DDDSuper(I18NMixin(LitElement)) {
     };
   }
 
+
+
+
   // Lit scoped styles
   static get styles() {
     return [super.styles,
     css`
       :host {
-        display: block;
-        color: var(--ddd-theme-primary);
-        background-color: var(--ddd-theme-accent);
-        font-family: var(--ddd-font-navigation);
       }
-      .wrapper {
-        margin: var(--ddd-spacing-2);
-        padding: var(--ddd-spacing-4);
+      /*KEEPS NAV BAR STICKY*/
+      badmen-navbar {
+        position: sticky;
+        top: 0;
+        z-index: 1000; /* keeps it above ALL other content */
       }
-      h3 span {
-        font-size: var(--the-badmen-label-font-size, var(--ddd-font-size-s));
+      .join-overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;  
+        transform: translate(-50%, -50%);
+        z-index: 10; /*this makes sure its above the image*/
       }
       .stats-row {
         display: flex;
@@ -78,6 +83,31 @@ export class TheBadmen extends DDDSuper(I18NMixin(LitElement)) {
         width: 100%;
         padding: 20px 0;
       }
+      .front-image {
+        position: relative;
+        display: flex; 
+        height: 800px;
+        width: 100%;
+      }
+      .badmen-image {
+              width: 100%;
+              opacity: 80%;
+            }
+      
+      /*for the data cards scroll*/
+      .horizontal-scroll { 
+        display: flex;
+        gap: 16px;
+        overflow-x: auto;
+        white-space: nowrap;
+        padding: 10px 0;
+        scrollbar-width: none; /* Firefox */
+      }
+
+      .horizontal-scroll::-webkit-scrollbar {
+        display: none; /* Chrome/Safari */
+      }
+
     `];
   }
 
@@ -88,6 +118,108 @@ render() {
 
       <h2>Navigation Bar</h2>
       <badmen-navbar></badmen-navbar>
+      <badmen-navbar></badmen-navbar>
+      <div class="front-image">
+      <img
+      class=badmen-image 
+      src="https://static.vecteezy.com/system/resources/thumbnails/065/837/310/small_2x/male-badminton-player-in-mid-air-split-shot-with-racket-and-shuttlecock-photo.jpeg"
+ />
+  <badmen-joinus class="join-overlay"></badmen-joinus>      
+</div>
+
+<div class="horizontal-scroll">
+   <badmen-datecard 
+      event="Spring Open House"
+      date="Saturday May 9, 2026"
+      time="1:30 p.m. - 4:00 p.m."
+      location="101 Intramural Building Curtin Rd, State College PA"
+      ageGroup="All ages are welcome!">
+    </badmen-datecard>
+    <badmen-datecard 
+      event="Summer Skills Clinic"
+      date="Tuesday June 16, 2026"
+      time="4:00 p.m. - 6:00 p.m."
+      location="South Gym, 125 Porter Rd, State College PA"
+      ageGroup="Ages 12–17">
+</badmen-datecard>
+
+<badmen-datecard 
+      event="Beginner Badminton Workshop"
+      date="Saturday July 11, 2026"
+      time="10:00 a.m. - 12:00 p.m."
+      location="Central Recreation Center, 400 Park Ave, State College PA"
+      ageGroup="Ages 8–14">
+</badmen-datecard>
+
+<badmen-datecard 
+      event="Community Open Play Night"
+      date="Friday August 7, 2026"
+      time="6:30 p.m. - 9:00 p.m."
+      location="Rec Hall Court 3, 15 North Atherton St, State College PA"
+      ageGroup="All ages welcome">
+</badmen-datecard>
+
+<badmen-datecard 
+      event="Fall Warm-Up Tournament"
+      date="Sunday September 20, 2026"
+      time="9:00 a.m. - 2:00 p.m."
+      location="North Gym Complex, 216 Park Forest Ave, State College PA"
+      ageGroup="Ages 13–18">
+</badmen-datecard>
+
+<badmen-datecard 
+      event="Doubles Strategy Session"
+      date="Wednesday October 14, 2026"
+      time="5:00 p.m. - 7:00 p.m."
+      location="IM Building Court 7, Curtin Rd, State College PA"
+      ageGroup="Ages 15+">
+</badmen-datecard>
+
+<badmen-datecard 
+      event="Holiday Break Badminton Bash"
+      date="Monday December 28, 2026"
+      time="2:00 p.m. - 5:00 p.m."
+      location="South Annex Gym, 145 College Ave, State College PA"
+      ageGroup="All ages welcome">
+</badmen-datecard>
+
+<badmen-datecard 
+      event="Winter Training Session"
+      date="Saturday January 10, 2027"
+      time="11:00 a.m. - 1:30 p.m."
+      location="Oakwood Athletic Center, 50 Oakwood Dr, State College PA"
+      ageGroup="Ages 10–16">
+</badmen-datecard>
+
+<badmen-datecard 
+      event="High School Prep Camp"
+      date="Thursday March 5, 2027"
+      time="4:30 p.m. - 7:00 p.m."
+      location="Panorama Courts, 82 Valley Vista Dr, State College PA"
+      ageGroup="Ages 14–18">
+</badmen-datecard>
+
+<badmen-datecard 
+      event="Advanced Footwork Intensive"
+      date="Sunday April 19, 2027"
+      time="1:00 p.m. - 3:30 p.m."
+      location="University Fitness Center, 200 Hastings Rd, State College PA"
+      ageGroup="Experienced players (ages 13+)">
+</badmen-datecard>
+
+<badmen-datecard 
+      event="Summer Kickoff Smash Night"
+      date="Friday May 22, 2027"
+      time="6:00 p.m. - 9:00 p.m."
+      location="Westside Community Gym, 300 Blue Course Dr, State College PA"
+      ageGroup="All ages welcome">
+</badmen-datecard>
+
+    </div>
+    </div>
+         
+      
+
 
       <h2>Signup Section</h2>
       <badmen-signup></badmen-signup>
@@ -112,6 +244,9 @@ render() {
       </div>
        <h2>Join Us</h2>
       <badmen-joinus></badmen-joinus>
+      <badmen-stats></badmen-stats>
+
+    
 
        <h2>Info boxes</h2>
       <badmen-infoboxes></badmen-infoboxes>
@@ -120,6 +255,8 @@ render() {
       <badmen-datecard></badmen-datecard>
 
     </div>
+
+    
   `;
 }
 
