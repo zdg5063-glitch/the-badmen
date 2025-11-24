@@ -74,6 +74,15 @@ export class TheBadmen extends DDDSuper(I18NMixin(LitElement)) {
         transform: translate(-50%, -50%);
         z-index: 10; /*this makes sure its above the image*/
       }
+      .stats-row {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+
+        width: 100%;
+        padding: 20px 0;
+      }
       .front-image {
         position: relative;
         display: flex; 
@@ -106,6 +115,9 @@ export class TheBadmen extends DDDSuper(I18NMixin(LitElement)) {
 render() {
   return html`
     <div class="wrapper">
+
+      <h2>Navigation Bar</h2>
+      <badmen-navbar></badmen-navbar>
       <badmen-navbar></badmen-navbar>
       <div class="front-image">
       <img
@@ -225,6 +237,13 @@ render() {
       <badmen-signup></badmen-signup>
 
       <h2>Stats</h2>
+      <div class="stats-row">
+      <badmen-stats number="10" label="Championships"></badmen-stats>
+      <badmen-stats number="450" label="Active Players"></badmen-stats>
+      <badmen-stats number="34" label="Coaches"></badmen-stats>
+      </div>
+       <h2>Join Us</h2>
+      <badmen-joinus></badmen-joinus>
       <badmen-stats></badmen-stats>
 
     
@@ -232,6 +251,10 @@ render() {
        <h2>Info boxes</h2>
       <badmen-infoboxes></badmen-infoboxes>
 
+       <h2>datecard</h2>
+      <badmen-datecard></badmen-datecard>
+
+    </div>
 
     
   `;

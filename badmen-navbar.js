@@ -6,11 +6,19 @@ export class badmenNavbar extends LitElement {
   }
 
   static get properties() {
+    return {
+      
+      
+    };
     return {};
   }
 
+  
+
   constructor() {
     super();
+   
+    
   }
 
   static get styles() {
@@ -76,6 +84,12 @@ li {
 }
 
 
+  render() {
+
+    return html`
+    
+    
+     
     `;
   }
 
