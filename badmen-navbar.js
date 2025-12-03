@@ -82,17 +82,10 @@ li {
   display: flex;
   align-items: center;
 }
-
-
-  render() {
-
-    return html`
-    
-    
-     
-    `;
+`;
   }
 
+ 
 render() {
   return html`
     <nav>
