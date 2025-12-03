@@ -178,6 +178,63 @@ export class TheBadmen extends DDDSuper(I18NMixin(LitElement)) {
   }
 }
 
+.info-boxes {
+  display: flex;                  /* inline-flex -> flex for better wrapping */
+  flex-wrap: wrap;                /* allow boxes to wrap on small screens */
+  justify-content: center;        /* center items horizontally */
+  gap: 16px;
+  padding: 1rem 1rem;             /* relative padding for responsiveness */
+  box-sizing: border-box;
+}
+
+@media (max-width: 480px) {
+  .info-boxes {
+    padding: 1rem 0.5rem;
+    gap: 12px;
+  }
+}
+
+
+
+
+.court-image {
+  position: relative;
+  width: 100%;
+  max-width: 90vw;           /* container scales with viewport */
+  margin: 0 auto;
+  padding-top: 56.25%;       /* maintains 16:9 aspect ratio (adjust if needed) */
+  overflow: visible;
+}
+
+.badminton-court-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: auto;
+  height: 90%;               /* fill container height */
+  max-height: 100%;
+  transform: translate(-50%, -50%) rotate(90deg); /* rotate and center */
+  transform-origin: center center;
+  display: block;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .court-image {
+    padding-top: 75%;        /* taller aspect ratio on narrow screens */
+  }
+
+  .badminton-court-image {
+    height: 80%;
+  }
+}
+
+
+
+
+
+
+
 
 
 
@@ -300,17 +357,50 @@ render() {
 </div>
 </div>
 </div>
-
-
-
-
-     
-    <div class="stats-banner">
+ 
+<div class="stats-banner">
 <badmen-stats number="8" label="CHAMPIONSHIPS" color=var(--ddd-theme-default-shrineMaxLight)></badmen-stats>
 <badmen-stats number="125+" label="ACTIVE PLAYERS" color="var(--ddd-theme-default-shrineMaxLight)"></badmen-stats>
 <badmen-stats number="17" label="COACHES" color="var(--ddd-theme-default-shrineMaxLight)"></badmen-stats>
+</div>
 
-      </div>
+<div class="info-boxes">
+      <badmen-infoboxes 
+      message="SUPPORT THE BADMEN!"
+      submessage="Donate Here">
+    </badmen-infoboxes>
+     <badmen-infoboxes 
+      message="CONTACT US!"
+      submessage="Here">
+    </badmen-infoboxes>
+     <badmen-infoboxes 
+      message="JOIN US!"
+      submessage="Join">
+    </badmen-infoboxes>
+</div>
+
+<div class="court-image">
+      <img
+        class="badminton-court-image"
+        src="https://cdn.vectorstock.com/i/1000v/93/34/aerial-view-of-badminton-court-vector-5639334.jpg"
+      />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       
       <h2>Signup Section</h2>
       <badmen-signup></badmen-signup>
@@ -324,11 +414,9 @@ render() {
       <h2>Signup</h2>
       <badmen-signup></badmen-signup>
 
-      <h2>Info boxes</h2>
-      <badmen-infoboxes></badmen-infoboxes>
+    
 
-      <h2>datecard</h2>
-      <badmen-datecard></badmen-datecard>
+     
 
     </div>
   `;

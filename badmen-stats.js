@@ -66,6 +66,7 @@ export class badmenStats extends LitElement {
         font-weight: var(--ddd-font-weight-black);
         font-size: clamp(12px, 4vw, 24px);
         line-height: 1;
+        padding-bottom: 16px;
       }
 
       @media (max-width: 600px) {
