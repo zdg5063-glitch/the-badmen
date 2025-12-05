@@ -39,6 +39,7 @@ export class BadmenNavbar extends LitElement {
   
       // FALLBACK MENU
       this.menu = [
+        { label: "Home", page: "home" },
         { label: "About Us", page: "about-us" },
         { label: "Schedule", page: "schedule" },
         { label: "Join Us", page: "join-us" }
@@ -143,14 +144,15 @@ export class BadmenNavbar extends LitElement {
   render() {
     return html`
       <nav>
-        <div class="logo-wrapper">
-          <img
-            class="logo"
-            src="https://freesvg.org/img/logo_bad_lion_2.png"
-            alt="Bad Lion Logo"
-          />
-          <span class="logo-text">THE BADMEN</span>
-        </div>
+      <div class="logo-wrapper" @click="${() => this.navigate('home')}" style="cursor:pointer;">
+      <img
+        class="logo"
+        src="https://freesvg.org/img/logo_bad_lion_2.png"
+        alt="Bad Lion Logo"
+      />
+      <span class="logo-text">THE BADMEN</span>
+    </div>
+
 
         <ul>
           ${this.menu.map(

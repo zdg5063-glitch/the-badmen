@@ -1,7 +1,7 @@
 import { LitElement, html, css } from "lit";
 
 export class BadmenAbout extends LitElement {
-  static get tag() { return "badmen-about"; }
+  static get tag() { return "badmen-aboutus"; }
 
   static get styles() {
     return css`
@@ -17,7 +17,7 @@ export class BadmenAbout extends LitElement {
         We are a premier badminton community focused on developing players
         of all ages through competition, coaching, and community.
       </p>
-      <badmen-about></badmen-about>
+      
     `;
   }
 }
