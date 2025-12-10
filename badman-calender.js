@@ -1,8 +1,8 @@
 import { LitElement, html, css } from "lit";
 
-export class BadmenCalendar extends LitElement {
+export class BadmenCalender extends LitElement {
   static get tag() {
-    return "badmen-calendar";
+    return "badmen-calender";
   }
 
   static get properties() {
