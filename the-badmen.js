@@ -367,6 +367,7 @@ renderHome() {
     </div>
 
 
+    <badmen-calender></badmen-calender>
 
 
 
