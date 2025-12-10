@@ -28,7 +28,7 @@ static get styles() {
       justify-content: center;
       align-items: center;
       width: 100%;                   /* fills parent container */
-      max-width: 500px;              
+      max-width: 400px;              
       min-height: 200px;             /* flexible height */
       background: var(--ddd-theme-default-roarLight);
       border-radius: 12px;
@@ -38,17 +38,17 @@ static get styles() {
     }
 
     .message {
-      font-size: clamp(48px, 8vw, 72px);
+      font-size: clamp(32px, 8vw, 64px);
       font-weight: var(--ddd-font-weight-regular);
       color: var(--ddd-theme-default-opportunityGreen);
       font-family: var(--ddd-font-navigation);
       text-align: center;
-      padding: 24px 0 36px 0;
+      padding: 2px 0 3px 0;
       line-height: 1.2;
     }
 
     .submessage {
-      font-size: clamp(24px, 4vw, 48px);
+      font-size: clamp(18px, 4vw, 36px);
       font-weight: var(--ddd-font-weight-bold);
       color: var(--ddd-theme-default-coalyGray);
       margin: 0;

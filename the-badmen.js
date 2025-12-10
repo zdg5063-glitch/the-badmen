@@ -16,6 +16,7 @@ import "./badmen-datecard.js";
 import "./badmen-stats.js";
 import "./badmen-aboutus.js";
 import "./badmen-schedule.js";
+import "./badmen-footer.js";
 
 
 /**
@@ -183,17 +184,17 @@ export class TheBadmen extends DDDSuper(I18NMixin(LitElement)) {
 }
 
 .info-boxes {
-  display: flex;                  /* inline-flex -> flex for better wrapping */
-  flex-wrap: wrap;                /* allow boxes to wrap on small screens */
-  justify-content: center;        /* center items horizontally */
+  display: flex;                 
+  flex-wrap: wrap;               
+  justify-content: center;       
   gap: 16px;
-  padding: 1rem 1rem;             /* relative padding for responsiveness */
+  padding: 16px;          
   box-sizing: border-box;
 }
 
 @media (max-width: 480px) {
   .info-boxes {
-    padding: 1rem 0.5rem;
+    padding: 8px;
     gap: 12px;
   }
 }
@@ -366,6 +367,7 @@ renderHome() {
     </div>
 
 
+    <badmen-calender></badmen-calender>
 
 
 
@@ -390,11 +392,11 @@ renderHome() {
           <h2>Layout</h2>
           <badmen-layout></badmen-layout>
 
-          <h2>Calender</h2>
-          <badman-calender></badman-calender>
-
           <h2>Signup</h2>
           <badmen-signup></badmen-signup>
+
+          <h2>Footer</h2>
+          <badmen-footer></badmen-footer>
 
 
 
