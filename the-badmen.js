@@ -6,7 +6,6 @@ import { LitElement, html, css } from "lit";
 import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
 import { I18NMixin } from "@haxtheweb/i18n-manager/lib/I18NMixin.js";
 import "./badmen-navbar.js";
-import "./badmen-layout.js";
 import "./badmen-signup.js";
 import "./badmen-teamname.js";
 import "./badman-calender.js";
@@ -17,6 +16,12 @@ import "./badmen-stats.js";
 import "./badmen-aboutus.js";
 import "./badmen-schedule.js";
 import "./badmen-footer.js";
+import "./badmen-sponsors.js";
+import "./badmen-contact.js";
+
+
+
+
 
 
 /**
@@ -106,7 +111,7 @@ export class TheBadmen extends DDDSuper(I18NMixin(LitElement)) {
       }
 /*CSS FOR THE STAT BOXES:****************************************************/
      
-      .stats-banner {
+  .stats-banner {
   background-color: var(--ddd-theme-default-opportunityGreen);         
   display: flex;                  
   justify-content: center;        
@@ -366,8 +371,11 @@ renderHome() {
         </badmen-infoboxes>
     </div>
 
+    <badmen-sponsors></badmen-sponsors>
 
-    <badmen-calender></badmen-calender>
+
+
+
 
 
 

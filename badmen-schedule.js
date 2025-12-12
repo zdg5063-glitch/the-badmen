@@ -14,8 +14,7 @@ export class BadmenSchedule extends LitElement {
     return html`
       <h1>Schedule</h1>
       <p>Here is our practice, tournament, and event schedule.</p>
-
-      <badman-calender></badman-calender>
+    <badmen-calender></badmen-calender>
     `;
   }
 }

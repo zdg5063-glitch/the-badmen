@@ -7,38 +7,40 @@ export class BadmenCalender extends LitElement {
 
   static get properties() {
     return {
-      monthsToShow: { type: Number }, // Number of months to display
+      monthsToShow: { type: Number }, 
     };
   }
 
   constructor() {
     super();
-    this.monthsToShow = 6; // Default number of months
+    this.monthsToShow = 12; 
   }
 
   static get styles() {
     return css`
-      host {
+      :host {
         display: block;
-        padding: 20px;
+        padding: 16px;
+        background-color: var(--ddd-theme-default-keystoneYellow);
+        color: black;
       }
 
       .multi-calendar {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 24px;
       }
 
       .calendar {
-        border: 1px solid #ccc;
-        border-radius: 10px;
-        padding: 10px;
+        border: 1px solid black;
+        border-radius: 8px;
+        padding: 16px;
         font-family: Arial, sans-serif;
       }
 
       .calendar h3 {
         text-align: center;
-        margin-bottom: 10px;
+        margin-bottom: 8px;
       }
 
       table {
@@ -47,7 +49,7 @@ export class BadmenCalender extends LitElement {
       }
 
       td {
-        border: 1px solid #ddd;
+        border: 1px solid black;
         text-align: center;
         padding: 5px;
       }
