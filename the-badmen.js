@@ -26,6 +26,29 @@ import "./badmen-joinuspage.js";
  * @demo index.html
  * @element the-badmen
  */
+
+function getPageFromURL() {
+  const params = new URLSearchParams(window.location.search);
+  return params.get("page") || "home";
+}
+
+
+window.BadmenRouter = {
+  go(page) {
+    // 1. Update URL
+    const url = page === "home" ? "/" : `?page=${page}`;
+    window.history.pushState({}, "", url);
+
+    // 2. Notify app
+    window.dispatchEvent(
+      new CustomEvent("route-changed", {
+        detail: { page }
+      })
+    );
+  }
+};
+
+
 export class TheBadmen extends DDDSuper(I18NMixin(LitElement)) {
 
   static get tag() {
@@ -35,6 +58,9 @@ export class TheBadmen extends DDDSuper(I18NMixin(LitElement)) {
   constructor() {
     super();
     this.title = "";
+    this.page = getPageFromURL();
+    const params = new URLSearchParams(window.location.search);
+    this.page = params.get("page") || "home";
     this.t = this.t || {};
     this.t = {
       ...this.t,
@@ -211,16 +237,25 @@ window.addEventListener("hashchange", () => {
     `];
   }
 
+  connectedCallback() {
+    super.connectedCallback();
+  
+    // Listen for routing changes from ANYWHERE (navbar, buttons, etc.)
+    window.addEventListener("route-changed", (e) => {
+      this.page = e.detail.page;
+    });
+  }
+  
+
+
+
+
 render() {
   return html`
-<badmen-navbar
-  .page="${this.page}"
-  @route-changed="${(e) => {
-    this.page = e.detail.page;
-    window.location.hash = this.page;
-  }}">
-</badmen-navbar>
-
+    <badmen-navbar
+      .page="${this.page}"
+      @route-changed="${(e) => this.page = e.detail.page}" .activePage="${this.page}">
+    </badmen-navbar>
 
     ${this.renderPage()}
   `;
@@ -360,15 +395,18 @@ renderHome() {
     <div class="info-boxes">
           <badmen-infoboxes 
           message="SUPPORT THE BADMEN!"
-          submessage="Donate Here">
+          submessage="Donate Here"
+          route="about-us">
         </badmen-infoboxes>
         <badmen-infoboxes 
           message="CONTACT THE BADMEN!"
-          submessage="Here">
+          submessage="Here"
+          route="schedule">
         </badmen-infoboxes>
         <badmen-infoboxes 
           message="JOIN THE BADMEN!"
-          submessage="Join">
+          submessage="Join"
+          route="join-us">
         </badmen-infoboxes>
     </div>
 
@@ -385,5 +423,6 @@ renderHome() {
       .href;
   }
 }
+
 
 globalThis.customElements.define(TheBadmen.tag, TheBadmen);
