@@ -73,15 +73,6 @@ export class TheBadmen extends DDDSuper(I18NMixin(LitElement)) {
         "/../",
       locales: ["ar", "es", "hi", "zh"],
     });
-    // --- NEW: Read current page from URL hash ---
-const hashPage = window.location.hash.replace("#", "");
-this.page = hashPage || ""; // default to home if no hash
-
-// Listen to hash changes (back/forward navigation)
-window.addEventListener("hashchange", () => {
-  this.page = window.location.hash.replace("#", "");
-});
-
   }
 
   // Lit reactive properties
@@ -230,14 +221,20 @@ window.addEventListener("hashchange", () => {
     `];
   }
 
-  connectedCallback() {
-    super.connectedCallback();
-  
-    // Listen for routing changes from ANYWHERE (navbar, buttons, etc.)
-    window.addEventListener("route-changed", (e) => {
-      this.page = e.detail.page;
-    });
-  }
+connectedCallback() {
+  super.connectedCallback();
+
+  // Listen for internal route changes
+  window.addEventListener("route-changed", (e) => {
+    this.page = e.detail.page;
+  });
+
+  // Listen for browser navigation (refresh, back, forward)
+  window.addEventListener("popstate", () => {
+    this.page = getPageFromURL();
+  });
+}
+
   
 render() {
   return html`
