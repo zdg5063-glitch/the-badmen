@@ -15,9 +15,6 @@ export class badmenTeamname extends LitElement {
     super();
     
   }
-
-
-
   static get styles() {
     return css`
        .team-name {

@@ -100,7 +100,6 @@ window.addEventListener("hashchange", () => {
     css`
       :host {
       }
-/*FRONT IMAGE AND BUTTON*******************************************************/
         .overlay-content {
         position: absolute;
         top: 40%;           /* adjust up/down */
@@ -126,9 +125,8 @@ window.addEventListener("hashchange", () => {
       }
       .badmen-image {
               width: 100%;
-              opacity: 60%;
+              opacity: 75%;
             }
-      /*for the date cards scroll*************************************************/
       .horizontal-scroll { 
         display: flex;
         gap: 16px;
@@ -140,7 +138,6 @@ window.addEventListener("hashchange", () => {
       .horizontal-scroll::-webkit-scrollbar {
         display: none; /* Chrome/Safari */
       }
-/*CSS FOR THE STAT BOXES:****************************************************/
      
   .stats-banner {
   background-color: var(--ddd-theme-default-opportunityGreen);         
@@ -150,10 +147,6 @@ window.addEventListener("hashchange", () => {
   width: 100%;
   box-sizing: border-box;
 }
-      
-
-
-
   .who-we-are-heading {
       font-family: var(--ddd-font-navigation);
       font-weight: var(--ddd-font-weight-black);
@@ -246,10 +239,6 @@ window.addEventListener("hashchange", () => {
     });
   }
   
-
-
-
-
 render() {
   return html`
     <badmen-navbar

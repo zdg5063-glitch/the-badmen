@@ -36,7 +36,15 @@ static get styles() {
       padding: 16px;
       box-sizing: border-box;
       margin: 0 auto;              
-    }
+      transition:
+      transform 0.25s ease,
+      box-shadow 0.25s ease;
+}
+
+:host(:hover) {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.18);
+}
 
     .message {
       font-size: clamp(32px, 8vw, 64px);
@@ -49,6 +57,7 @@ static get styles() {
     }
 
     .submessage {
+      cursor: pointer;
       font-size: clamp(18px, 4vw, 36px);
       font-weight: var(--ddd-font-weight-bold);
       color: var(--ddd-theme-default-coalyGray);
@@ -56,10 +65,28 @@ static get styles() {
       font-family: var(--ddd-font-navigation);
       text-align: center;
       background-color: var(--ddd-theme-default-keystoneYellow);
-      border-radius: 50px;
+      border-radius: 12px;
       padding: 8px 16px;
       word-break: break-word;
+      
+      transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease,
+      background-color 0.2s ease;
     }
+
+    .submessage:hover {
+      transform: scale(1.06);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+      background-color: var(--ddd-theme-default-opportunityGreen);
+      color: white;
+    }
+
+    .submessage:active {
+      transform: scale(0.98);
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+    }
+
 
     @media (max-width: 480px) {
       :host {
